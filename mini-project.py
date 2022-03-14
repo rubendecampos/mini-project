@@ -63,15 +63,12 @@ std_test = pd.DataFrame(test_set, columns=test_set.columns)
 
 
 #Preprocessing 3: minmax using Polynomial_Features
-"""
-poly_scaler = preprocessing.PolynomialFeatures()
 
-poly_train = pd.DataFrame(train_set)
-poly_test = pd.DataFrame(test_set)
-poly_train[:] = poly_scaler.fit_transform(train_set[:])
-poly_test[:] = poly_scaler.transform(test_set[:])
+poly_scaler = preprocessing.PolynomialFeatures(train_set.columns)
 
-"""
+poly_train = poly_scaler.fit_transform(train_set[:])
+poly_test = poly_scaler.transform(test_set[:])
+
 
 
 #Preprocessing 4: z-normalization using Polynomial_Features
