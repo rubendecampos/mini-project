@@ -18,8 +18,6 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
 
     if(poly_choice):
 
-        print("youlou")
-
         poly_scaler = preprocessing.PolynomialFeatures()
 
         preproc_train = poly_scaler.fit_transform(train_set)
@@ -30,9 +28,6 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
     preproc_train = prepro_object.fit_transform(preproc_train)
     preproc_test = prepro_object.transform(preproc_test)
 
-    print(preproc_train.shape)
-
-    print(preproc_test.shape)
 
     preproc_train = pd.DataFrame(preproc_train)
     preproc_test = pd.DataFrame(preproc_test)
