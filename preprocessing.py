@@ -12,15 +12,15 @@ prepro_methods_choice = {"min_max":preprocessing.MinMaxScaler(),"z_norm":preproc
 def preprocess(train_set,test_set,method_choice,poly_choice):
     """
     preprocess get a splitted (in two part) dataset (train and test)
-    and apply a preprocess method on both subset.
+    and apply a preprocess method on both subsets.
 
-    param train_set: Data of the train set
-    param test_set: Data of the test set
-    param method_choice: The chosen preprocessing method 
-                         available methods are referenced in the dictionnary
+    param train_set: Pandas Dataframe of the train set
+    param test_set: Pandas Dataframe of the test set
+    param method_choice: The chosen preprocessing method.
+                         All available methods are referenced in the dictionnary
                          "prepro_methods_choice" above
     param poly_choice: Set at True if a polynomial feature is nedded before preprocessing
-    return: two subdataset (train and test) after applying a preprocessing method
+    return: two numpy subsets (train and test) after applying a preprocessing method
     """ 
     
     prepro_object=prepro_methods_choice[method_choice]
@@ -46,11 +46,6 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
     #apply the chosen preprocessing method on train and test subdataset
     preproc_train = prepro_object.fit_transform(preproc_train)
     preproc_test = prepro_object.transform(preproc_test)
-
-
-    preproc_train = pd.DataFrame(preproc_train)
-    preproc_test = pd.DataFrame(preproc_test)
-
 
     return preproc_train,preproc_test
 
