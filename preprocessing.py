@@ -27,10 +27,10 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
         preproc_train = poly_scaler.fit_transform(train_set)
         preproc_test = poly_scaler.transform(test_set)
 
-        preproc_train = preproc_train.append(tmp_train)
+        np.append(preproc_train,tmp_train) 
 
-        preproc_test = preproc_test.append(tmp_test)
-    
+        np.append(preproc_test,tmp_test)
+
     preproc_train = prepro_object.fit_transform(preproc_train)
     preproc_test = prepro_object.transform(preproc_test)
 
