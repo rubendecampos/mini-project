@@ -1,9 +1,4 @@
-from ast import arg
-from doctest import Example
-from email.policy import default
-from tkinter import N
 import argparse
-from tkinter.filedialog import test
 
 import database
 import preprocessing
