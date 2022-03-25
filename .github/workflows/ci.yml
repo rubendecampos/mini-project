@@ -52,3 +52,35 @@ jobs:
         run: |
           conda info -a
           pytest test_database.py
+        # run the doctest
+          sphinx-build -b doctest doc sphinx
+
+      - name: Build documentation
+        shell: bash -l {0}
+        run: |
+          sphinx-build doc sphinx
+          touch sphinx/.nojekyll
+          coverage html -d sphinx/coverage
+
+      - name: Upload coverage to coverall.io
+        shell: bash -l {0}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
+          COVERALLS_PARALLEL: true
+        run: |
+        conda info -a
+        coveralls --service=github
+
+  coveralls:
+    name: Indicate completion to coveralls.io
+    needs: test
+    runs-on: ubuntu-latest
+    container: python:3-slim
+    steps:
+    - name: Finished
+      run: |
+        pip3 install --upgrade coveralls
+        coveralls --service=github --finish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
