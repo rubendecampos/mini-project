@@ -5,11 +5,10 @@ channels:
 
 dependencies:
   - numpy
-  - scipy
   - pytest
   - pytest-cov
   - pandas
-  - sklearn
+  - scikit-learn
   - pip
   - pip:
     - coveralls
