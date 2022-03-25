@@ -8,6 +8,7 @@ dependencies:
   - scipy
   - pytest
   - pytest-cov
+  - pandas
   - pip
   - pip:
     - coveralls
