@@ -28,12 +28,12 @@ def train_algo(train_set,test_set,method_choice):
     y_train = train_set[:,-1]
     x_train = train_set[:,:-1]
 
-    print(y_train.shape)
-    print(x_train.shape)
+    #print(y_train.shape)
+    #print(x_train.shape)
 
     x_test = test_set[:,:-1]
 
-    print(x_test.shape)
+    #print(x_test.shape)
 
     algo_object.fit(x_train,y_train)
 
@@ -51,9 +51,9 @@ if __name__ == '__main__':
 
     test_set = np.array(test_set)
 
-    print(train_set.shape)
+    #print(train_set.shape)
 
     predi = train_algo(train_set,test_set,"LIN_REGRESSION")
 
 
-    print(predi)
+    #print(predi)

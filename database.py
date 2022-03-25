@@ -98,6 +98,10 @@ def load_data(user_choice):
     elif user_choice == 'housing':
         data = pd.read_fwf('Datasets/housing.data')
         data.columns = ['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT','MEDV']
+    # combination of both red and white wine
+    elif user_choice == 'wine':
+        data = pd.read_csv('Datasets/winequality-red.csv', sep=';')
+        data = data.append(pd.read_csv('Datasets/winequality-white.csv', sep=';'), ignore_index=True)
     # default choice is set to white wine
     else:
         data = pd.read_csv('Datasets/winequality-white.csv', sep=';')

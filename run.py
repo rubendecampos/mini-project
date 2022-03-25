@@ -2,8 +2,13 @@ from ast import arg
 from doctest import Example
 from email.policy import default
 from tkinter import N
-import database
 import argparse
+from tkinter.filedialog import test
+
+import database
+import preprocessing
+import algorithm
+import analysis
 
 ## TODO: implement different function for each case, then call these function
 ##          when needed
@@ -61,15 +66,36 @@ examples:
     # process only the protocols listed by the user
     protocols = args.protocol
     for proto in protocols:
-        #####
-        # delete that part later
+
+        # get the training set and test set
         train_set = database.get(proto,'train')
         test_set = database.get(proto,'test')
-        print(train_set, test_set)
-        #####
-        
+
         # use the given preprocessing method
+        preproc = args.prep
+        if preproc == 'minmax':
+            prep_test, prep_train = preprocessing.preprocess(train_set,test_set,'min_max',poly_choice=False)
+        elif preproc == 'znorm':
+            prep_test, prep_train = preprocessing.preprocess(train_set,test_set,'z_norm',poly_choice=False)
+        elif preproc == 'poly-minmax':
+            prep_test, prep_train = preprocessing.preprocess(train_set,test_set,'min_max',poly_choice=True)
+        elif preproc == 'poly-znorm':
+            prep_test, prep_train = preprocessing.preprocess(train_set,test_set,'z_norm',poly_choice=True)
         
+        print("\n%s table using the %s method : " % (proto, preproc))
+        print(50 * "-")
+
+        # compute the two algorithm (Linear Regression and Regression Tree)
+        prediction_lin = algorithm.train_algo(prep_train, prep_test, 'LIN_REGRESSION')
+        prediction_tree = algorithm.train_algo(prep_train, prep_test, 'DECISION_TREE')
+
+        # compare the result
+        expected = test_set.pop('quality')
+        error_lin = analysis.analyser(expected, prediction_lin)
+        error_tree = analysis.analyser(expected, prediction_tree)
+
+        print("Absolute error using Linear Regression  |  %d" % error_lin)
+        print("Absolute error using Regression Tree    |  %d" % error_tree)
 
 
 if __name__ == "__main__":
