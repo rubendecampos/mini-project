@@ -1,3 +1,5 @@
+name: project
+
 channels:
   - defaults
 
@@ -6,6 +8,8 @@ dependencies:
   - scipy
   - pytest
   - pytest-cov
+  - pandas
+  - sklearn
   - pip
   - pip:
     - coveralls
