@@ -9,6 +9,7 @@ dependencies:
   - pytest
   - pytest-cov
   - pandas
+  - sklearn
   - pip
   - pip:
     - coveralls
