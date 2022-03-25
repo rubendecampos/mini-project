@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 from sklearn import model_selection
 
+'''preprocessing module : to ensure that our algorithm works correctly, we preprocess the
+the data using 4 preprocessing techniques'''
 
 #Dictionnary of the differents proposition of preprocessing and their respective object
 #Methods can be added by adding the name of the method as key of the dictionnary and the preprocessing object as value

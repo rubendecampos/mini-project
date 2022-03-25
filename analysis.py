@@ -1,16 +1,25 @@
 from sklearn import metrics
 
+'''analysis module that compare the predicted result with the real result'''
 
 def analyser(predict,real):
-    """
-    Perform the absolute error between the prediction of the algorithm
-    the real data.
+    """Perform the absolute error between the prediction of the algorithm
+    and the real data.
 
-    param train_set: Pandas Dataframe of the train set
-    param test_set: Pandas Dataframe of the test set
+    Parameter
+    =========
+
+    predict : pandas Dataframe
+        predicted value, given by our algorithm
     
-    return: a float (the absolute error)
-    """ 
+    real : Pandas Dataframe
+        real value (from the test_set)
+    
+    Return
+    ======
+    
+    error : float
+        the absolute error""" 
 
     error = metrics.mean_absolute_error(real, predict)
     return error
