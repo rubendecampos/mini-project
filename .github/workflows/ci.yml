@@ -40,9 +40,6 @@ jobs:
             miniforge-variant: Mambaforge
             miniforge-version: latest
             use-mamba: true
-            python-version: ${{ matrix.python-version }}
-            auto-update-conda: true
-            auto-activate-base: false
             activate-environment: project
 
       - name: Get Date
