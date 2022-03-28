@@ -28,7 +28,22 @@ author = 'Ruben De Campos / Samuel Michel'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx.ext.coverage",
+    "sphinx.ext.doctest",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.autodoc"
 ]
+
+autosummary_generate = True
+
+# If we are on OSX, the 'dvipng' path maybe different
+dvipng_osx = "/opt/local/libexec/texlive/binaries/dvipng"
+if os.path.exists(dvipng_osx):
+    pngmath_dvipng = dvipng_osx
+
+source_suffix = ".rst"
+
+master_doc = "index"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
