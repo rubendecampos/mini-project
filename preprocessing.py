@@ -15,25 +15,21 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
     '''preprocess get a splitted (in two part) dataset (train and test)
     and apply a preprocess method on both subsets.
 
-    Parameters:
-    ===========
-
-    train_set : pandas Dataframe 
+    Parameters
+    ----------
+    train_set : panda.dataframe 
         datafram of the train set
-
-    test_set : pandas Dataframe
+    test_set : pandas.dataframe
         dataframe of the test set
-    
     method_choice : str
-        the chosen preprocessing method. The available methods are 'min_max' and 'z_norm
-                         
+        the chosen preprocessing method. The available methods are 'min_max' and 'z_norm          
     poly_choice : bool
         set at True if a polynomial feature is needed before preprocessing
 
-    Return
-    ======
-    
-    two numpy subsets (train and test) preprocessed'''
+    Returns
+    -------
+    preproc_train, preproc_test : numpy.array
+        two numpy subsets (train and test) preprocessed'''
     
     prepro_object=prepro_methods_choice[method_choice]
 

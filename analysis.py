@@ -6,18 +6,15 @@ def analyser(predict,real):
     """Perform the absolute error between the prediction of the algorithm
     and the real data.
 
-    Parameter
-    =========
-
-    predict : pandas Dataframe
+    Parameters
+    ----------
+    predict : pandas.dataframe
         predicted value, given by our algorithm
-    
-    real : Pandas Dataframe
+    real : Pandas.dataframe
         real value (from the test_set)
     
-    Return
-    ======
-    
+    Returns
+    -------
     error : float
         the absolute error""" 
 

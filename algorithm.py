@@ -16,20 +16,16 @@ def train_algo(train_set,test_set,method_choice):
     perform a prediction
 
     Parameters
-    ==========
-
-    train_set : numpy array
+    ----------
+    train_set : numpy.array
         use to train the model
-
-    test_set : numpy array
+    test_set : numpy.array
         set that will be use to test our algorithm
-
     method_choice : str
         the chosen algo method. The available method are : Linear Regression and Regression Tree.
 
-    Return
-    ======
-
+    Returns
+    -------
     prediction : array
         the predicted output""" 
 
