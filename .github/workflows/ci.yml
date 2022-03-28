@@ -52,7 +52,6 @@ jobs:
         run: |
           conda info -a
           pytest test_database.py
-        # run the doctest
           sphinx-build -b doctest doc sphinx
 
       - name: Build documentation
