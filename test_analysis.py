@@ -35,7 +35,7 @@ def test_not_array_real():
 
 
 def test_different_shapes():
-    '''Test when real is not an array'''
+    '''Test when predict and real don't have the same shape'''
 
     passed = False
 
@@ -50,22 +50,23 @@ def test_different_shapes():
     assert passed
 
 def test_error_0():
-    '''Test when real is not an array'''
+    '''Test error=0'''
 
     expect = 0
     error = analyser(np.array([0,1,2]),np.array([0,1,2]))
     assert np.isclose(error,expect)
 
 def test_error_1():
-    '''Test when real is not an array'''
+    '''Test error=1'''
 
     expect = 1
     error = analyser(np.array([1,0]),np.array([0,1]))
     assert np.isclose(error,expect)
 
 def test_error_quarter():
-    '''Test when real is not an array'''
+    '''Test error=1/4'''
 
     expect = 0.25
-    error = analyser(np.array([0,1,0,0]),np.array([1,1,1,1]))
+    error = analyser(np.array([0,1,0,0]),np.array([0,0,0,0]))
     assert np.isclose(error,expect)
+
