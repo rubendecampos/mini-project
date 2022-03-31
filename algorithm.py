@@ -4,36 +4,37 @@ import numpy as np
 from sklearn import model_selection
 import pandas as pd
 
+'''algorithm module that use the previously preprocessed data and predict their output'''
+
 #Dictionnary of the differents proposition of algorithms and their respective object
 #Algorithms can be added by adding the name of the method as key of the dictionnary and the algorithm object as value
 algo_choice = {"LIN_REGRESSION":linear_model.LinearRegression(),"DECISION_TREE":DecisionTreeRegressor(random_state=0)}
 
 
-
 def train_algo(train_set,test_set,method_choice):
-    """
-    Train a machine learning algorithm using the train set and
+    """Train a machine learning algorithm using the train set and
     perform a prediction
 
-    param train_set: numpy array of the train set
-    param test_set: numpy array of the test set
-    param method_choice: The chosen algo method.
-                         All available methods are referenced in the dictionnary
-                         "algo_choice" above
-    return: An array of the prediction of the algoritm
-    """ 
+    Parameters
+    ----------
+    train_set : numpy.array
+        use to train the model
+    test_set : numpy.array
+        set that will be use to test our algorithm
+    method_choice : str
+        the chosen algo method. The available method are : Linear Regression and Regression Tree.
+
+    Returns
+    -------
+    prediction : array
+        the predicted output""" 
 
     algo_object=algo_choice[method_choice]
 
     y_train = train_set[:,-1]
     x_train = train_set[:,:-1]
 
-    #print(y_train.shape)
-    #print(x_train.shape)
-
     x_test = test_set[:,:-1]
-
-    #print(x_test.shape)
 
     algo_object.fit(x_train,y_train)
 

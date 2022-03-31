@@ -5,8 +5,6 @@ import preprocessing
 import algorithm
 import analysis
 
-## TODO: implement different function for each case, then call these function
-##          when needed
 
 def main():
     """main function that is call by the command line"""

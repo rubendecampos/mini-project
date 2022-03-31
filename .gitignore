@@ -1,4 +1,5 @@
 *~
+sphinx/
 __pycache__/
 .coverage
 workspace.code-workspace

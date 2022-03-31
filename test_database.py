@@ -18,7 +18,7 @@ def doit(label, nb_proto, train_set_expected, test_set_expected):
     nb_proto: int
         the nb of protocols to create
 
-    train_set_expected, test_set_expected: pandas dataframe
+    train_set_expected, test_set_expected: pandas.dataframe
         two pandas dataframes containing the expected result of the test
 
     """
