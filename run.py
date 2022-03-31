@@ -5,6 +5,8 @@ import preprocessing
 import algorithm
 import analysis
 
+import numpy as np
+
 
 def main():
     """main function that is call by the command line"""
@@ -83,7 +85,7 @@ examples:
         prediction_tree = algorithm.train_algo(prep_train, prep_test, 'DECISION_TREE')
 
         # compare the result
-        expected = test_set.pop('quality')
+        expected = np.array(test_set.pop('quality'))
         error_lin = analysis.analyser(expected, prediction_lin)
         error_tree = analysis.analyser(expected, prediction_tree)
 
