@@ -51,8 +51,7 @@ jobs:
       - name: Run tests
         run: |
           conda info -a
-          pytest -sv --cov=. test_database.py
-          pytest -sv --cov=. test_analysis.py
+          pytest -sv --cov=. test_database.py test_analysis.py
           sphinx-build -b doctest doc sphinx
           python run.py --help
           python run.py
