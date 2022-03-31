@@ -1,5 +1,5 @@
 from sklearn import metrics
-import numpy
+import numpy as np
 
 
 def analyser(predict,real):
@@ -12,11 +12,11 @@ def analyser(predict,real):
     
     return: a float (the absolute error)
     """ 
-    if(isinstance(predict,'numpy.ndarray')):
+    if(isinstance(predict,np.ndarray)):
 
         raise TypeError("predict is %s, should be a numpy array"% type(predict))
 
-    if(isinstance(predict,'numpy.ndarray')):
+    if(isinstance(predict,np.ndarray)):
 
         raise TypeError("real is %s, should be a numpy array"% type(real))
 
