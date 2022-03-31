@@ -1,4 +1,4 @@
-"""Test unit for the analysis code"""
+"""Test unit for the preprocessing code"""
 
 from preprocessing import preprocess
 from sklearn import preprocessing
@@ -43,7 +43,7 @@ def test_not_bool_poly():
     assert passed
 
 
-def test_not_in_choices_real():
+def test_not_in_choices():
     '''Test when method_choice is not the choices'''
 
     passed = False
@@ -65,7 +65,7 @@ def test_not_in_choices_real():
     assert passed
 
 
-def test_not_in_choices_real():
+def test_different_shape():
     '''Test when number of column is different'''
 
     passed = False
