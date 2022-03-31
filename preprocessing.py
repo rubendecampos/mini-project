@@ -80,25 +80,3 @@ def preprocess(train_set,test_set,method_choice,poly_choice):
 
     return preproc_train,preproc_test
 
-
-if __name__ == '__main__':
-
-    data = pd.read_csv('Datasets/winequality-white.csv', sep=';')   
-    train_set, test_set = model_selection.train_test_split(data, train_size=0.5, test_size=0.5, random_state=0)
-
-
-
-
-    for n, p in enumerate(prepro_methods_choice):
-
-        print("choice n°"+str(n)+" "+p)
-
-    method_choice = list(prepro_methods_choice)[int(input())]
-
-    print("use polynomial_feature ? ")
-
-    poly_choice = bool(input())
-
-    preproc_train,preproc_test= preprocess(train_set, test_set,method_choice,poly_choice)
-
-
