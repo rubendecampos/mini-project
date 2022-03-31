@@ -12,16 +12,16 @@ def analyser(predict,real):
     
     return: a float (the absolute error)
     """ 
-    if(isinstance(predict,np.ndarray)):
+    if(not isinstance(predict,np.ndarray)):
 
         raise TypeError("predict is %s, should be a numpy array"% type(predict))
 
-    if(isinstance(predict,np.ndarray)):
+    if(not isinstance(real,np.ndarray)):
 
         raise TypeError("real is %s, should be a numpy array"% type(real))
 
 
-    if(predict.shape==real.shape):
+    if(predict.shape!=real.shape):
 
         raise IndexError("predict and real should have the same shape and predict have shape %s and real have shape %s"% (predict.shape,real.shape) )
 
