@@ -81,8 +81,8 @@ examples:
         print(50 * "-")
 
         # compute the two algorithm (Linear Regression and Regression Tree)
-        prediction_lin = algorithm.train_algo(prep_train, prep_test, 'LIN_REGRESSION')
-        prediction_tree = algorithm.train_algo(prep_train, prep_test, 'DECISION_TREE')
+        prediction_lin = algorithm.train_algo_and_predict(prep_train, prep_test, 'LIN_REGRESSION')
+        prediction_tree = algorithm.train_algo_and_predict(prep_train, prep_test, 'DECISION_TREE')
 
         # compare the result
         expected = np.array(test_set.pop('quality'))
