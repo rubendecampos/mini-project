@@ -1,3 +1,6 @@
+
+[![Coverage Status](https://coveralls.io/repos/github/rubendecampos/mini-project/badge.svg?branch=main)](https://coveralls.io/github/rubendecampos/mini-project?branch=main)
+
 # mini-project
 This project goal is to build an extensible and fully reproducible system to analyze multiple datasets, with various Machine Learning techniques.
 

@@ -1,31 +1,29 @@
-import numpy as np
 import pandas as pd
 from sklearn import model_selection
 
-'''Database module to load and split the housing and wine database into different set : test and training'''
+"""Database module to load and split the housing and wine database into different set : test and training"""
 
 protocols = dict()
 
 
 def create_protocols(data, n):
-    protocols.clear()
-    '''Create n protocols, each protocol being split in a training set and a test set (50/50)
+    """Create n protocols, each protocol being split in a training set and a test set (50/50)
     !It clears the content of the 'protocols' dictionary!
 
     Parameters
-    ==========
-    
-    data : pandas dataframe
+    ----------
+    data : pandas.dataframe
         the dataset to split into 50% of training and 50% and test
-
     n : int
         number of protocols to create, they are labeled 'proto1', ..., 'proton'
-    
-    Returns
-    =======
 
+    Returns
+    -------
     protocols : dict
-        a dictionary containg all the protocols and their subset'''
+        a dictionary containg all the protocols and their subset
+    """
+
+    protocols.clear()
 
     for i in range(n):
         # split the data in a random way. (random_state is used for reproducibility)
@@ -41,39 +39,33 @@ def create_protocols(data, n):
 
 
 def get(protocol, subset):
-    '''Get the training or testing set from a protocol
+    """Get the training or testing set from a protocol
     
     Parameters
-    ==========
-    
+    ----------
     protocol : str
         labal of the protocol to get (e.g. 'proto1')
-        
     subset : str
         either 'test' or 'train'
-    
-    Return
-    ======
 
-    the test or training set from a protocol
-    '''
+    Returns
+    -------
+    the test or training set from a protocol : pandas.dataframe
+    """
     proto = protocols[protocol]
     return proto[subset]
 
 def set(protocol, train_set, test_set):
-    '''Set manually a new protocol
+    """Set manually a new protocol
     
     Parameters
-    ==========
-    
+    ----------
     protocol : str
         the label of the new protocol
-        
     train_set : list
         the training set
-        
     test_set : list
-        the test set'''
+        the test set"""
 
     protocols[protocol] = {
         'train': train_set,
@@ -82,13 +74,12 @@ def set(protocol, train_set, test_set):
 
 def load_data(user_choice):
     """Load the set of data according to the user choice
-    
+
     Parameters
-    ==========
-    
+    ----------
     user_choice : str
         there are 3 possible choice : 'white-wine', 'red-wine' or 'housing', by default it is 
-        set to 'white-wine'"""
+        set to 'white-wine"""
 
     if user_choice == 'white-wine':
         data = pd.read_csv('Datasets/winequality-white.csv', sep=';')
