@@ -1,4 +1,4 @@
-"""Test unit for the database code"""
+"""Test unit for the analysis code"""
 
 from analysis import analyser
 import numpy as np
