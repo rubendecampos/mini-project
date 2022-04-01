@@ -66,6 +66,7 @@ examples:
         train_set = database.get(proto,'train')
         test_set = database.get(proto,'test')
 
+
         # use the given preprocessing method
         preproc = args.prep
         if preproc == 'minmax':
@@ -81,16 +82,17 @@ examples:
         print(50 * "-")
 
         # compute the two algorithm (Linear Regression and Regression Tree)
-        prediction_lin = algorithm.train_algo(prep_train, prep_test, 'LIN_REGRESSION')
-        prediction_tree = algorithm.train_algo(prep_train, prep_test, 'DECISION_TREE')
+        prediction_lin = algorithm.train_algo_and_predict(prep_train, prep_test, 'LIN_REGRESSION')
+        prediction_tree = algorithm.train_algo_and_predict(prep_train, prep_test, 'DECISION_TREE')
 
         # compare the result
-        expected = np.array(test_set.pop('quality'))
+        expected = prep_test[:,-1]
+
         error_lin = analysis.analyser(expected, prediction_lin)
         error_tree = analysis.analyser(expected, prediction_tree)
 
-        print("Absolute error using Linear Regression  |  %d" % error_lin)
-        print("Absolute error using Regression Tree    |  %d" % error_tree)
+        print("Absolute error using Linear Regression  |  %f" % error_lin)
+        print("Absolute error using Regression Tree    |  %f" % error_tree)
 
 
 if __name__ == "__main__":

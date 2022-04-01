@@ -11,7 +11,7 @@ import pandas as pd
 algo_choice = {"LIN_REGRESSION":linear_model.LinearRegression(),"DECISION_TREE":DecisionTreeRegressor(random_state=0)}
 
 
-def train_algo(train_set,test_set,method_choice):
+def train_algo_and_predict(train_set,test_set,method_choice):
     """Train a machine learning algorithm using the train set and
     perform a prediction
 
@@ -28,6 +28,28 @@ def train_algo(train_set,test_set,method_choice):
     -------
     prediction : array
         the predicted output""" 
+
+    if(not isinstance(train_set,np.ndarray)):
+
+        raise TypeError("train_set is %s, should be a np.ndarray"% type(train_set))
+
+    if(not isinstance(test_set,np.ndarray)):
+
+        raise TypeError("test_set is %s, should be a np.ndarray"% type(test_set))
+
+    if(not isinstance(method_choice,str)):
+
+        raise TypeError("method_choice is %s, should be a string"% type(method_choice))
+
+    if(method_choice not in algo_choice):
+
+        raise KeyError("method_choice %s, does not exists in algo choices "% str(method_choice))
+
+
+    if(train_set.shape[1]!=test_set.shape[1]):
+
+        raise IndexError("train and test sets should have the same number of columns, train has %s and test has shape %s"% (train_set.shape[1],test_set.shape[1]))
+
 
     algo_object=algo_choice[method_choice]
 
@@ -52,9 +74,9 @@ if __name__ == '__main__':
 
     test_set = np.array(test_set)
 
-    #print(train_set.shape)
+    print(train_set.shape)
 
-    predi = train_algo(train_set,test_set,"LIN_REGRESSION")
+    predi = train_algo_and_predict(train_set,test_set,"DECISION_TREE")
 
 
-    #print(predi)
+    print(predi.shape)
