@@ -61,7 +61,6 @@ jobs:
         run: |
           sphinx-build doc sphinx
           touch sphinx/.nojekyll
-          coverage html -d sphinx/coverage
 
       - name: Deploy documentation to GitHub Pages
         if: ${{ matrix.python-version == '3.9' && startsWith(github.ref, 'refs/tags') }}

@@ -24,7 +24,9 @@ sys.path.append(os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = 'mini-project'
-copyright = '2022, Ruben De Campos / Samuel Michel'
+
+import time
+copyright = u'%s, Ruben De Campos / Samuel Michel' % time.strftime("%Y")
 author = 'Ruben De Campos / Samuel Michel'
 
 
