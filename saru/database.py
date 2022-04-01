@@ -82,19 +82,19 @@ def load_data(user_choice):
         set to 'white-wine"""
 
     if user_choice == 'white-wine':
-        data = pd.read_csv('Datasets/winequality-white.csv', sep=';')
+        data = pd.read_csv('saru/Datasets/winequality-white.csv', sep=';')
     elif user_choice == 'red-wine':
-        data = pd.read_csv('Datasets/winequality-red.csv', sep=';')
+        data = pd.read_csv('saru/Datasets/winequality-red.csv', sep=';')
     elif user_choice == 'housing':
-        data = pd.read_fwf('Datasets/housing.data')
+        data = pd.read_fwf('saru/Datasets/housing.data')
         data.columns = ['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT','MEDV']
     # combination of both red and white wine
     elif user_choice == 'wine':
-        data = pd.read_csv('Datasets/winequality-red.csv', sep=';')
-        data = data.append(pd.read_csv('Datasets/winequality-white.csv', sep=';'), ignore_index=True)
+        data = pd.read_csv('saru/Datasets/winequality-red.csv', sep=';')
+        data = data.append(pd.read_csv('saru/Datasets/winequality-white.csv', sep=';'), ignore_index=True)
     # default choice is set to white wine
     else:
-        data = pd.read_csv('Datasets/winequality-white.csv', sep=';')
+        data = pd.read_csv('saru/Datasets/winequality-white.csv', sep=';')
     
     return data
 

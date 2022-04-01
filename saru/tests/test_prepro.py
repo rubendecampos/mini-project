@@ -1,5 +1,8 @@
 """Test unit for the preprocessing code"""
 
+import sys
+sys.path.append('saru/')
+
 from preprocessing import preprocess
 from sklearn import preprocessing
 import numpy as np
