@@ -37,8 +37,10 @@ To reproduce this work, you need to fulfill this requirements :
 * ...
 * Having a basic understanding of git and Linux command lines
 
-Then follow the [installation] process to install our package from PyPi
-and read the [user_guide] to run the experiment and see the results of
+Then follow the `installation <https://rubendecampos.github.io/mini-project/installation>`_
+process to install our package from PyPi and read the 
+`user guide <https://rubendecampos.github.io/mini-project/user_guide>`_ to run the 
+experiment and see the results of
 our analysis.
 
 If you have trouble running our code try the help command::

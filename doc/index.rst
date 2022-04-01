@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 ==========================================
- Welcome to mini-project's documentation!
+ Welcome to SaRu's documentation!
 ==========================================
 
 .. include:: ../README.rst
@@ -14,10 +14,16 @@ Documentation
 -------------
 
 .. toctree::
+   :maxdepth: 2
 
    installation
    user_guide
    api
+
+.. toctree:: 
+   :titlesonly:
+
+   results
    license
 
 
