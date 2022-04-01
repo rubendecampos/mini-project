@@ -51,7 +51,7 @@ jobs:
       - name: Run tests
         run: |
           conda info -a
-          pytest -sv --cov=. tests/
+          pytest -sv --cov=. saru/tests/
           sphinx-build -b doctest doc sphinx
           python run.py --help
           python run.py
