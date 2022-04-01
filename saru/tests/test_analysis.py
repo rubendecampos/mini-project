@@ -1,5 +1,8 @@
 """Test unit for the analysis code"""
 
+import sys
+sys.path.append('saru/')
+
 from analysis import analyser
 import numpy as np
 

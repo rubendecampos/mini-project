@@ -1,5 +1,8 @@
 """Test unit for the algorithm code"""
 
+import sys
+sys.path.append('saru/')
+
 from algorithm import train_algo_and_predict
 import numpy as np
 

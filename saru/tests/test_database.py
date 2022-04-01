@@ -1,6 +1,9 @@
 
 """Test unit for the database code"""
 
+import sys
+sys.path.append('saru/')
+
 import database
 import pandas as pd
 import numpy as np
