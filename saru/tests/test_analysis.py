@@ -1,9 +1,7 @@
 """Test unit for the analysis code"""
 
-import sys
-sys.path.append('saru/')
 
-from analysis import analyser
+from saru import analysis
 import numpy as np
 
 def test_not_array_predict():
@@ -13,7 +11,7 @@ def test_not_array_predict():
 
     try:
 
-        error = analyser("string",[[0,1],[0,1]])
+        error = analysis.analyser("string",[[0,1],[0,1]])
 
     except TypeError:
 
@@ -28,7 +26,7 @@ def test_not_array_real():
 
     try:
 
-        error = analyser([[0,1],[0,1]],"string")
+        error = analysis.analyser([[0,1],[0,1]],"string")
 
     except TypeError:
 
@@ -44,7 +42,7 @@ def test_different_shapes():
 
     try:
 
-        error = analyser(np.array([0,1,2]),np.array([0,1,2,3]))
+        error = analysis.analyser(np.array([0,1,2]),np.array([0,1,2,3]))
 
     except IndexError:
 
@@ -56,20 +54,20 @@ def test_error_0():
     '''Test error=0'''
 
     expect = 0
-    error = analyser(np.array([0,1,2]),np.array([0,1,2]))
+    error = analysis.analyser(np.array([0,1,2]),np.array([0,1,2]))
     assert np.isclose(error,expect)
 
 def test_error_1():
     '''Test error=1'''
 
     expect = 1
-    error = analyser(np.array([1,0]),np.array([0,1]))
+    error = analysis.analyser(np.array([1,0]),np.array([0,1]))
     assert np.isclose(error,expect)
 
 def test_error_quarter():
     '''Test error=1/4'''
 
     expect = 0.25
-    error = analyser(np.array([0,1,0,0]),np.array([0,0,0,0]))
+    error = analysis.analyser(np.array([0,1,0,0]),np.array([0,0,0,0]))
     assert np.isclose(error,expect)
 
