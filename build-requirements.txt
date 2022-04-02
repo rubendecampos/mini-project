@@ -2,4 +2,3 @@ pytest
 pytest-cov
 coveralls
 sphinx
-sphinx_rtd_theme
