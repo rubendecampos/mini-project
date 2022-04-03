@@ -60,12 +60,9 @@ jobs:
       # Default action: run the tests
       - name: Run tests
         run: |
-          conda info -a
-          pytest -sv --cov=. saru/tests/
           sphinx-build -b doctest doc sphinx
-          python run.py --help
-          python run.py
-
+          saru-run --help
+          saru-run
       - name: Build documentation
         if: ${{ matrix.python-version == '3.9' }} 
         run: |
