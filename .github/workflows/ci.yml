@@ -46,23 +46,19 @@ jobs:
           pip install -r build-requirements.txt   
       #only required for CI tests
       
-      - name: Run all tests and upload coverage to coveralls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
-          COVERALLS_PARALLEL: true
+      - name: Run all tests
         run: |
-          saru-run --help  #checks help function works at least
-          saru-run  #basic test case
-          saru-run  --protocol=proto2  #filter by protocol
+          saru-run --help  
+          saru-run  
           pytest -sv --cov=saru saru
           
       # Default action: run the tests
-      - name: Run tests
+      - name: Run Doctests
         run: |
           sphinx-build -b doctest doc sphinx
           saru-run --help
           saru-run
+          
       - name: Build documentation
         if: ${{ matrix.python-version == '3.9' }} 
         run: |

@@ -18,7 +18,7 @@ The helper function should provide you enough informations on how to run this pr
 
 .. code-block:: 
 
-    $ python saru -h
+    $ saru-run -h
 
 But if you trouble understanding it, you can continue reading this section.
 
@@ -32,7 +32,7 @@ example:
 
 .. code-block:: 
 
-    $ python saru --dataset red-wine
+    $ saru-run --dataset red-wine
 
 The available choices are: *wine*, *red-wine*, *white-wine* and *housing*. *Wine* is 
 the combination of *red-wine* and *white-wine*.
@@ -50,7 +50,7 @@ example:
 
 .. code-block:: 
 
-    $ python saru --prep minmax
+    $ saru-run --prep minmax
 
 The available choices are: *minmax*, *znorm*, *poly-minmax* and *poly-znorm*.
 
@@ -67,13 +67,13 @@ Use the ``-p`` option:
 
 .. code-block:: 
 
-    $ python saru -p proto1
+    $ saru-run -p proto1
 
 you can also give a list of protocols:
 
 .. code-block:: 
 
-    $ python sart -p proto1 proto2
+    $ saru-run -p proto1 proto2
 
 
 Go to the `result <https://rubendecampos.github.io/mini-project/results>`_ page.
