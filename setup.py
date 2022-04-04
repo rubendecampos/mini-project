@@ -2,7 +2,7 @@ import setuptools
 
 
 setuptools.setup(name='saru',
-      version='0.6',
+      version='1.0.0',
       long_description=open("README.rst").read(),
       url='https://github.com/rubendecampos/mini-project',
       author='Ruben De CAMPOS and Samuel MICHEL',
