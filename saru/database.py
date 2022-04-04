@@ -104,10 +104,3 @@ def load_data(user_choice):
         data = pd.read_csv(DATAFILE, sep=';')
     
     return data
-
-if __name__ == '__main__':
-    data = load_data('white-wine')
-    protocols = create_protocols(data,3)
-
-    train_set = get('proto2','train')
-    print(train_set)
