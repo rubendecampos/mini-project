@@ -85,6 +85,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'bizstyle'
 
+html_logo = "img/saru-logo.png"
+
+html_favicon = "img/favicon.ico"
+
 
 # Default processing flags for sphinx
 autoclass_content = "class"

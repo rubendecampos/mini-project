@@ -37,7 +37,7 @@ How to reproduce this work
 To reproduce this work, you need to :
 
 * Have a basic understanding of command lines
-* Have python and pip installed
+* Have python (version >=3.8, <3.10) and pip installed
 
 Then follow the `installation <https://rubendecampos.github.io/mini-project/installation>`_
 process to install our package from PyPi and read the 
@@ -47,7 +47,7 @@ our analysis.
 
 If you have trouble running our code try the help command::
 
-   python run.py -h
+   $ saru-run -h
 
 If you still have problem to run our code or found any bugs, don't hesitate
 to report an issue, it will help us improve our code and make it more extensible.

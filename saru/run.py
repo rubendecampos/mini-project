@@ -15,9 +15,13 @@ def main():
     example_doc = """\
 examples:
 
-    1. a list of different examples
+    1. Display the MAE of the default preprocessing method 'minmax' and the dataset 'white-win'
+
+        $ saru-run
     
-    2. second example"""
+    2. Display the MAE for the the protocol 'proto1' and 'proto2' only
+    
+        $ saru-run -p proto1 proto2"""
 
     parser = argparse.ArgumentParser(
         usage="python %(prog)s [options]",
