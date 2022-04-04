@@ -19,8 +19,10 @@
 This project goal is to build an extensible and fully reproducible system 
 to analyze multiple datasets, with various Machine Learning techniques.
 
-[description of the program (what it does, Pyton program, on terminal, etc...)]
-
+Saru is a small software that compute the absolute mean error of an algorithm that
+predict the quality of a wine or the price of a house using different machine
+learning techniques.
+It is a python program that can be use through any basic terminal.
 
 This work must be fully reproducible and extensible. The user can easily 
 install and run the packages on his working environment to recreate the results 
@@ -32,10 +34,10 @@ quality control.
 How to reproduce this work
 ---------------------------
 
-To reproduce this work, you need to fulfill this requirements :
+To reproduce this work, you need to :
 
-* ...
-* Having a basic understanding of git and Linux command lines
+* Have a basic understanding of command lines
+* Have python and pip installed
 
 Then follow the `installation <https://rubendecampos.github.io/mini-project/installation>`_
 process to install our package from PyPi and read the 
