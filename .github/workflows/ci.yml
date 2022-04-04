@@ -58,7 +58,7 @@ jobs:
           sphinx-build -b doctest doc sphinx
           saru-run --help
           saru-run
-          
+
       - name: Build documentation
         if: ${{ matrix.python-version == '3.9' }} 
         run: |
@@ -81,6 +81,21 @@ jobs:
           COVERALLS_PARALLEL: true
         run: |
           coveralls --service=github
+
+      - name: Build PyPI (source) package
+        # builds only from one variant
+        if: ${{ matrix.python-version == '3.9' }}
+        run: |
+          python setup.py sdist
+
+      - name: Deploy package to TestPyPI
+        # deploys when a tag i pushed
+        if: ${{ matrix.python-version == '3.9' && startsWith(github.ref, 'refs/tags') }}
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository_url: https://test.pypi.org/legacy/
+
 
   coveralls:
     name: Indicate completion to coveralls.io
