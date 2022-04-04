@@ -1,6 +1,7 @@
 """Test unit for the algorithm code"""
 
-from algorithm import train_algo_and_predict
+
+from saru import algorithm
 import numpy as np
 
 
@@ -11,7 +12,7 @@ def test_not_array_train():
 
     try:
 
-        algo_result = train_algo_and_predict("train_set","test_set","method_choice")
+        algo_result = algorithm.train_algo_and_predict("train_set","test_set","method_choice")
 
     except TypeError:
 
@@ -31,7 +32,7 @@ def test_not_in_choices():
 
     try:
 
-        algo_result = train_algo_and_predict(train_set,test_set,"method_choice")
+        algo_result = algorithm.train_algo_and_predict(train_set,test_set,"method_choice")
 
     except KeyError:
 
@@ -51,7 +52,7 @@ def test_different_shape():
 
     try:
 
-        algo_result = train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
+        algo_result = algorithm.train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
 
     except IndexError:
 
@@ -66,7 +67,7 @@ def test_shape_predict_lin():
 
     test_set=np.array([[0,0,0],[1,1,1]])
 
-    algo_result = train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
+    algo_result = algorithm.train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
 
     assert algo_result.shape[0]== test_set.shape[0]
 
@@ -77,7 +78,7 @@ def test_shape_predict_dec_tree():
 
     test_set=np.array([[0,0,0],[1,1,1]])
 
-    algo_result = train_algo_and_predict(train_set,test_set,"DECISION_TREE")
+    algo_result = algorithm.train_algo_and_predict(train_set,test_set,"DECISION_TREE")
 
     assert algo_result.shape[0]== test_set.shape[0]
 
@@ -96,7 +97,7 @@ def test_predict_lin():
 
     expected=np.array([16])
 
-    algo_result = train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
+    algo_result = algorithm.train_algo_and_predict(train_set,test_set,"LIN_REGRESSION")
 
     assert np.isclose(algo_result[0],expected)
 
@@ -109,6 +110,6 @@ def test_predict_dec_tree():
 
     expected=np.array([1])
 
-    algo_result = train_algo_and_predict(train_set,test_set,"DECISION_TREE")
+    algo_result = algorithm.train_algo_and_predict(train_set,test_set,"DECISION_TREE")
 
     assert np.isclose(algo_result[0],expected)

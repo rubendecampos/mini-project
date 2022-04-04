@@ -1,6 +1,7 @@
 """Test unit for the preprocessing code"""
 
-from preprocessing import preprocess
+
+from saru import preprocessing as preproc
 from sklearn import preprocessing
 import numpy as np
 import pandas as pd
@@ -13,7 +14,7 @@ def test_not_dataframe_train():
 
     try:
 
-        process_result = preprocess("train_set","test_set","method_choice",2)
+        process_result = preproc.preprocess("train_set","test_set","method_choice",2)
 
     except TypeError:
 
@@ -34,7 +35,7 @@ def test_not_bool_poly():
 
     try:
 
-        process_result = preprocess(train,test,"min_max",2)
+        process_result = preproc.preprocess(train,test,"min_max",2)
 
     except TypeError:
 
@@ -56,7 +57,7 @@ def test_not_in_choices():
 
     try:
 
-        process_result = preprocess(train,test,"method_choice",True)
+        process_result = preproc.preprocess(train,test,"method_choice",True)
 
     except KeyError:
 
@@ -81,7 +82,7 @@ def test_different_shape():
 
     try:
 
-        process_result = preprocess(train,test,"min_max",True)
+        process_result = preproc.preprocess(train,test,"min_max",True)
 
     except IndexError:
 
@@ -100,7 +101,7 @@ def test_min_max_wo_poly():
 
     test=pd.DataFrame(data=d)
 
-    train_set, test_set = preprocess(train,test,"min_max",False)
+    train_set, test_set = preproc.preprocess(train,test,"min_max",False)
 
     assert np.allclose(train_set,expected) and np.allclose(test_set,expected)
 
@@ -115,7 +116,7 @@ def test_z_norm_wo_poly():
 
     test=pd.DataFrame(data=d)
 
-    train_set, test_set = preprocess(train,test,"z_norm",False)
+    train_set, test_set = preproc.preprocess(train,test,"z_norm",False)
 
     assert np.allclose(train_set,expected,atol=1e-02) and np.allclose(test_set,expected,atol=1e-02)
 
@@ -145,7 +146,7 @@ def test_poly_feature_z_norm():
 
     test=pd.DataFrame(data=d2)
 
-    train_set, test_set = preprocess(train,test,"z_norm",True)
+    train_set, test_set = preproc.preprocess(train,test,"z_norm",True)
 
     assert np.allclose(train_set,expected) and np.allclose(test_set,expected2)
 
@@ -174,6 +175,6 @@ def test_poly_feature_min_max():
 
     test=pd.DataFrame(data=d2)
 
-    train_set, test_set = preprocess(train,test,"min_max",True)
+    train_set, test_set = preproc.preprocess(train,test,"min_max",True)
 
     assert np.allclose(train_set,expected) and np.allclose(test_set,expected2)

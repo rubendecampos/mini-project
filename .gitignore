@@ -4,3 +4,5 @@ sphinx/
 __pycache__/
 .coverage
 workspace.code-workspace
+dist/
+saru.egg-info/

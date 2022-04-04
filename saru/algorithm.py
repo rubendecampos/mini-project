@@ -64,19 +64,3 @@ def train_algo_and_predict(train_set,test_set,method_choice):
 
     return prediction
 
-
-if __name__ == '__main__':
-
-    data = pd.read_csv('Datasets/winequality-white.csv', sep=';')   
-    train_set, test_set = model_selection.train_test_split(data, train_size=0.5, test_size=0.5, random_state=0)
-
-    train_set = np.array(train_set)
-
-    test_set = np.array(test_set)
-
-    print(train_set.shape)
-
-    predi = train_algo_and_predict(train_set,test_set,"DECISION_TREE")
-
-
-    print(predi.shape)

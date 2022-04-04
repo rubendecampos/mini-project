@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn import model_selection
+import pkg_resources
 
 """Database module to load and split the housing and wine database into different set : test and training"""
 
@@ -82,25 +83,24 @@ def load_data(user_choice):
         set to 'white-wine"""
 
     if user_choice == 'white-wine':
-        data = pd.read_csv('Datasets/winequality-white.csv', sep=';')
+        DATAFILE = pkg_resources.resource_filename(__name__, "Datasets/winequality-white.csv")
+        data = pd.read_csv(DATAFILE, sep=';')
     elif user_choice == 'red-wine':
-        data = pd.read_csv('Datasets/winequality-red.csv', sep=';')
+        DATAFILE = pkg_resources.resource_filename(__name__, "Datasets/winequality-red.csv")
+        data = pd.read_csv(DATAFILE, sep=';')
     elif user_choice == 'housing':
-        data = pd.read_fwf('Datasets/housing.data')
+        DATAFILE = pkg_resources.resource_filename(__name__, "Datasets/housing.data")
+        data = pd.read_fwf(DATAFILE)
         data.columns = ['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT','MEDV']
     # combination of both red and white wine
     elif user_choice == 'wine':
-        data = pd.read_csv('Datasets/winequality-red.csv', sep=';')
-        data = data.append(pd.read_csv('Datasets/winequality-white.csv', sep=';'), ignore_index=True)
+        DATAFILE = pkg_resources.resource_filename(__name__, "Datasets/winequality-white.csv")
+        data = pd.read_csv(DATAFILE, sep=';')
+        DATAFILE2 = pkg_resources.resource_filename(__name__, "Datasets/winequality-red.csv")
+        data = data.append(pd.read_csv(DATAFILE2, sep=';'), ignore_index=True)
     # default choice is set to white wine
     else:
-        data = pd.read_csv('Datasets/winequality-white.csv', sep=';')
+        DATAFILE = pkg_resources.resource_filename(__name__, "Datasets/winequality-white.csv")
+        data = pd.read_csv(DATAFILE, sep=';')
     
     return data
-
-if __name__ == '__main__':
-    data = load_data('white-wine')
-    protocols = create_protocols(data,3)
-
-    train_set = get('proto2','train')
-    print(train_set)
