@@ -33,29 +33,36 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repository code
         uses: actions/checkout@v2
+
+      # Default action: run something (prepares the Python environment)
+      - name: Prepare Python ${{ matrix.python-version }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+
+      - name: Install package and build dependencies for Python ${{ matrix.python-version }}
+        run: |
+          pip install .
+          pip install -r build-requirements.txt   
+      #only required for CI tests
       
-      # Action provided by conda-incubator to setup conda env, doesn't activate the base environment
-      # but 'project' environment
-      - name: Setup miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          miniconda-version: 'latest'
-          python-version: ${{ matrix.python-version }}
-          auto-update-conda: true
-          auto-activate-base: false
-          activate-environment: project
-          environment-file: environment.yml
+      - name: Run all tests and upload coverage to coveralls
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
+          COVERALLS_PARALLEL: true
+        run: |
+          saru-run --help  #checks help function works at least
+          saru-run  #basic test case
+          saru-run  --protocol=proto2  #filter by protocol
+          pytest -sv --cov=saru saru
           
-      
       # Default action: run the tests
       - name: Run tests
         run: |
-          conda info -a
-          pytest -sv --cov=. saru/tests/
           sphinx-build -b doctest doc sphinx
-          python run.py --help
-          python run.py
-
+          saru-run --help
+          saru-run
       - name: Build documentation
         if: ${{ matrix.python-version == '3.9' }} 
         run: |
@@ -77,7 +84,6 @@ jobs:
           COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
           COVERALLS_PARALLEL: true
         run: |
-          conda info -a
           coveralls --service=github
 
   coveralls:

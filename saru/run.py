@@ -1,11 +1,12 @@
 import argparse
-
-import database
-import preprocessing
-import algorithm
-import analysis
-
 import numpy as np
+
+from saru import database
+from saru import preprocessing
+from saru import algorithm
+from saru import analysis
+
+
 
 
 def main():

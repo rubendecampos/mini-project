@@ -19,7 +19,7 @@ Results using the minmax method:
 
 .. testcode:: 
 
-    run_commandline('python run.py --dataset white-wine --prep minmax')
+    run_commandline('saru-run --dataset white-wine --prep minmax')
 
 Result:
 
@@ -50,7 +50,7 @@ Results using the znorm method:
 
 .. testcode:: 
 
-    run_commandline('python run.py --dataset white-wine --prep znorm')
+    run_commandline('saru-run --dataset white-wine --prep znorm')
 
 Result:
 
@@ -81,7 +81,7 @@ Results using the poly-minmax method:
 
 .. testcode:: 
 
-    run_commandline('python run.py --dataset white-wine --prep poly-minmax')
+    run_commandline('saru-run --dataset white-wine --prep poly-minmax')
 
 Result:
 
@@ -113,7 +113,7 @@ Results using the poly-znorm method:
 
 .. testcode:: 
 
-    run_commandline('python run.py --dataset white-wine --prep poly-znorm')
+    run_commandline('saru-run --dataset white-wine --prep poly-znorm')
 
 Result:
 

@@ -1,10 +1,8 @@
 
 """Test unit for the database code"""
 
-import sys
-sys.path.append('saru/')
 
-import database
+from saru import database
 import pandas as pd
 import numpy as np
 from sklearn import model_selection
@@ -53,7 +51,6 @@ def test_create_protocol_white():
     
 def test_create_protocol_housing():
     '''Test the creation of 3 housing protocols'''
-
     data = pd.read_fwf('saru/Datasets/housing.data')
     train_set_expected, test_set_expected = model_selection.train_test_split(data, train_size=0.5, test_size=0.5, random_state=2)
     doit('housing', 3, train_set_expected, test_set_expected)
