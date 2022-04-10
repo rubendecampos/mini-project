@@ -60,3 +60,18 @@ Contributors
 Ruben DE CAMPOS (`rubdendecampos <https://github.com/rubendecampos>`_)
 
 Samuel MICHEL (`mchlsam <https://github.com/mchlsam>`_)
+
+
+Ressources
+-------------
+
+To realise, this project we have been helping with the following resources:
+
+- https://mldoodles.com/wine-quality-prediction/
+
+- https://towardsdatascience.com/linear-regression-on-boston-housing-dataset-f409b7e4a155
+
+- https://towardsdatascience.com/an-intuitive-perspective-to-linear-regression-32bb9885b312
+
+- https://github.com/idiap/mai-m05-ex6
+

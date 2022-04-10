@@ -48,6 +48,14 @@ def test_create_protocol_white():
     data = pd.read_csv('saru/Datasets/winequality-white.csv', sep=';')
     train_set_expected, test_set_expected = model_selection.train_test_split(data, train_size=0.5, test_size=0.5, random_state=2)
     doit('white-wine', 3, train_set_expected, test_set_expected)
+
+def test_create_protocol_wine():
+    '''Test the creation of 3 white wine protocols'''
+
+    data = pd.read_csv('saru/Datasets/winequality-white.csv', sep=';')
+    data = data.append(pd.read_csv('saru/Datasets/winequality-red.csv', sep=';'), ignore_index=True)
+    train_set_expected, test_set_expected = model_selection.train_test_split(data, train_size=0.5, test_size=0.5, random_state=2)
+    doit('wine', 3, train_set_expected, test_set_expected)
     
 def test_create_protocol_housing():
     '''Test the creation of 3 housing protocols'''
