@@ -1,0 +1,476 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Python API &#8212; mini-project  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Results" href="results.html" />
+    <link rel="prev" title="User Guide" href="user_guide.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="results.html" title="Results"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="user_guide.html" title="User Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mini-project  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Python API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="python-api">
+<h1>Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h1>
+<section id="module-saru.database">
+<span id="database"></span><h2>Database<a class="headerlink" href="#module-saru.database" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.database.create_protocols">
+<span class="sig-prename descclassname"><span class="pre">saru.database.</span></span><span class="sig-name descname"><span class="pre">create_protocols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/database.html#create_protocols"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.database.create_protocols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create n protocols, each protocol being split in a training set and a test set (50/50)
+!It clears the content of the ‘protocols’ dictionary!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.dataframe</em>) – the dataset to split into 50% of training and 50% and test</p></li>
+<li><p><strong>n</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – number of protocols to create, they are labeled ‘proto1’, …, ‘proton’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>protocols</strong> – a dictionary containg all the protocols and their subset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.database.get">
+<span class="sig-prename descclassname"><span class="pre">saru.database.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/database.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.database.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the training or testing set from a protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – labal of the protocol to get (e.g. ‘proto1’)</p></li>
+<li><p><strong>subset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – either ‘test’ or ‘train’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>the test or training set from a protocol</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.database.set">
+<span class="sig-prename descclassname"><span class="pre">saru.database.</span></span><span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/database.html#set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.database.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set manually a new protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the label of the new protocol</p></li>
+<li><p><strong>train_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – the training set</p></li>
+<li><p><strong>test_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – the test set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.database.load_data">
+<span class="sig-prename descclassname"><span class="pre">saru.database.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/database.html#load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.database.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the set of data according to the user choice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user_choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – there are 3 possible choice : ‘white-wine’, ‘red-wine’ or ‘housing’, by default it is
+set to ‘white-wine</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-saru.preprocessing">
+<span id="preprocessing"></span><h2>Preprocessing<a class="headerlink" href="#module-saru.preprocessing" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.preprocessing.preprocess">
+<span class="sig-prename descclassname"><span class="pre">saru.preprocessing.</span></span><span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_choice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/preprocessing.html#preprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.preprocessing.preprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>preprocess get a splitted (in two part) dataset (train and test)
+and apply a preprocess method on both subsets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_set</strong> (<em>pandas.DataFrame</em>) – datafram of the train set</p></li>
+<li><p><strong>test_set</strong> (<em>pandas.DataFrame</em>) – dataframe of the test set</p></li>
+<li><p><strong>method_choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the chosen preprocessing method. The available methods are ‘min_max’ and ‘z_norm</p></li>
+<li><p><strong>poly_choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – set at True if a polynomial feature is needed before preprocessing, Warning using polynomial
+feature, the ouput column has to be the last column of the sets</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>preproc_train, preproc_test</strong> – two numpy subsets (train and test) preprocessed</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-saru.algorithm">
+<span id="algorithm"></span><h2>Algorithm<a class="headerlink" href="#module-saru.algorithm" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.algorithm.train_algo_and_predict">
+<span class="sig-prename descclassname"><span class="pre">saru.algorithm.</span></span><span class="sig-name descname"><span class="pre">train_algo_and_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/algorithm.html#train_algo_and_predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.algorithm.train_algo_and_predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Train a machine learning algorithm using the train set and
+perform a prediction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_set</strong> (<em>numpy.array</em>) – use to train the model</p></li>
+<li><p><strong>test_set</strong> (<em>numpy.array</em>) – set that will be use to test our algorithm</p></li>
+<li><p><strong>method_choice</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the chosen algo method. The available method are : Linear Regression and Regression Tree.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>prediction</strong> – the predicted output</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-saru.analysis">
+<span id="analysis"></span><h2>Analysis<a class="headerlink" href="#module-saru.analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.analysis.analyser">
+<span class="sig-prename descclassname"><span class="pre">saru.analysis.</span></span><span class="sig-name descname"><span class="pre">analyser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/analysis.html#analyser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.analysis.analyser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the absolute error between the prediction of the algorithm
+and the real data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predict</strong> (<em>pandas.dataframe</em>) – predicted value, given by our algorithm</p></li>
+<li><p><strong>real</strong> (<em>Pandas.dataframe</em>) – real value (from the test_set)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>error</strong> – the absolute error</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<section id="module-saru.tests.test_database">
+<span id="database-tests"></span><h3>Database tests:<a class="headerlink" href="#module-saru.tests.test_database" title="Permalink to this headline">¶</a></h3>
+<p>Test unit for the database code</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_database.doit">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_database.</span></span><span class="sig-name descname"><span class="pre">doit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_proto</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_set_expected</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_set_expected</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_database.html#doit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_database.doit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs a test</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>label</strong> (<em>string</em>) – the name of the dataset to load</p></li>
+<li><p><strong>nb_proto</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – the nb of protocols to create</p></li>
+<li><p><strong>train_set_expected</strong> (<em>pandas.dataframe</em>) – two pandas dataframes containing the expected result of the test</p></li>
+<li><p><strong>test_set_expected</strong> (<em>pandas.dataframe</em>) – two pandas dataframes containing the expected result of the test</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_database.test_create_protocol_red">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_database.</span></span><span class="sig-name descname"><span class="pre">test_create_protocol_red</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_database.html#test_create_protocol_red"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_database.test_create_protocol_red" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the creation of 3 red wine protocols</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_database.test_create_protocol_white">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_database.</span></span><span class="sig-name descname"><span class="pre">test_create_protocol_white</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_database.html#test_create_protocol_white"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_database.test_create_protocol_white" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the creation of 3 white wine protocols</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_database.test_create_protocol_wine">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_database.</span></span><span class="sig-name descname"><span class="pre">test_create_protocol_wine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_database.html#test_create_protocol_wine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_database.test_create_protocol_wine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the creation of 3 white wine protocols</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_database.test_create_protocol_housing">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_database.</span></span><span class="sig-name descname"><span class="pre">test_create_protocol_housing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_database.html#test_create_protocol_housing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_database.test_create_protocol_housing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the creation of 3 housing protocols</p>
+</dd></dl>
+
+</section>
+<section id="module-saru.tests.test_prepro">
+<span id="preprocessing-tests"></span><h3>Preprocessing tests:<a class="headerlink" href="#module-saru.tests.test_prepro" title="Permalink to this headline">¶</a></h3>
+<p>Test unit for the preprocessing code</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_not_dataframe_train">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_not_dataframe_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_not_dataframe_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_not_dataframe_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when train is not an dataframe</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_not_bool_poly">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_not_bool_poly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_not_bool_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_not_bool_poly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when poly_feature is not a bool</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_not_in_choices">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_not_in_choices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_not_in_choices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_not_in_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when method_choice is not the choices</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_different_shape">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_different_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_different_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_different_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when number of column is different</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_min_max_wo_poly">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_min_max_wo_poly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_min_max_wo_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_min_max_wo_poly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test min_max_example took from sklearn documentation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_z_norm_wo_poly">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_z_norm_wo_poly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_z_norm_wo_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_z_norm_wo_poly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test Z_norm example took from sklearn documentation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_poly_feature_z_norm">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_poly_feature_z_norm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_poly_feature_z_norm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_poly_feature_z_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test polynomial with z_norm preprocessing features example took from sklearn documentation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_prepro.test_poly_feature_min_max">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_prepro.</span></span><span class="sig-name descname"><span class="pre">test_poly_feature_min_max</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_prepro.html#test_poly_feature_min_max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_prepro.test_poly_feature_min_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test polynomial features with min_max preprocessing example took from sklearn documentation</p>
+</dd></dl>
+
+</section>
+<section id="module-saru.tests.test_algorithm">
+<span id="algorithm-tests"></span><h3>Algorithm tests:<a class="headerlink" href="#module-saru.tests.test_algorithm" title="Permalink to this headline">¶</a></h3>
+<p>Test unit for the algorithm code</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_not_array_train">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_not_array_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_not_array_train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_not_array_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when train is not an np.ndarray</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_not_in_choices">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_not_in_choices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_not_in_choices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_not_in_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when method_choice is not the choices</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_different_shape">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_different_shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_different_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_different_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when number of column is different</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_shape_predict_lin">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_shape_predict_lin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_shape_predict_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_shape_predict_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test number of rows of the prediction match number of rows test for linear_regretion</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_shape_predict_dec_tree">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_shape_predict_dec_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_shape_predict_dec_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_shape_predict_dec_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test number of rows of the prediction match number of rows test for decision_tree</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_predict_lin">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_predict_lin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_predict_lin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_predict_lin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test prediction output for linear_regretion example took from sklearn documentation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_algorithm.test_predict_dec_tree">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_algorithm.</span></span><span class="sig-name descname"><span class="pre">test_predict_dec_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_algorithm.html#test_predict_dec_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_algorithm.test_predict_dec_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test prediction output for decision_tree example took from sklearn documentation</p>
+</dd></dl>
+
+</section>
+<section id="module-saru.tests.test_analysis">
+<span id="analysis-tests"></span><h3>Analysis tests:<a class="headerlink" href="#module-saru.tests.test_analysis" title="Permalink to this headline">¶</a></h3>
+<p>Test unit for the analysis code</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_not_array_predict">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_not_array_predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_not_array_predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_not_array_predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when predict is not an array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_not_array_real">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_not_array_real</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_not_array_real"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_not_array_real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when real is not an array</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_different_shapes">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_different_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_different_shapes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_different_shapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test when predict and real don’t have the same shape</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_error_0">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_error_0</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_error_0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_error_0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test error=0</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_error_1">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_error_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_error_1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_error_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test error=1</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="saru.tests.test_analysis.test_error_quarter">
+<span class="sig-prename descclassname"><span class="pre">saru.tests.test_analysis.</span></span><span class="sig-name descname"><span class="pre">test_error_quarter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/saru/tests/test_analysis.html#test_error_quarter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#saru.tests.test_analysis.test_error_quarter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test error=1/4</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/saru-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Python API</a><ul>
+<li><a class="reference internal" href="#module-saru.database">Database</a></li>
+<li><a class="reference internal" href="#module-saru.preprocessing">Preprocessing</a></li>
+<li><a class="reference internal" href="#module-saru.algorithm">Algorithm</a></li>
+<li><a class="reference internal" href="#module-saru.analysis">Analysis</a></li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#module-saru.tests.test_database">Database tests:</a></li>
+<li><a class="reference internal" href="#module-saru.tests.test_prepro">Preprocessing tests:</a></li>
+<li><a class="reference internal" href="#module-saru.tests.test_algorithm">Algorithm tests:</a></li>
+<li><a class="reference internal" href="#module-saru.tests.test_analysis">Analysis tests:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="user_guide.html"
+                          title="previous chapter">User Guide</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="results.html"
+                          title="next chapter">Results</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="results.html" title="Results"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="user_guide.html" title="User Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mini-project  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Python API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Ruben De Campos / Samuel Michel.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

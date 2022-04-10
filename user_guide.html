@@ -1,0 +1,186 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>User Guide &#8212; mini-project  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python API" href="api.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="Python API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mini-project  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User Guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<p>The following steps below explain you how to use this package. You can then compare the
+obtained result <a class="reference external" href="https://rubendecampos.github.io/mini-project/results">here</a>.</p>
+<p>The goal of this software is compute the absolute mean error of a simple algorithm that
+predict the quality of a wine or the price of a house using two Machine Learning techniques:
+Linear Regression and Regression Tree.</p>
+<section id="helper-function">
+<h2>Helper function:<a class="headerlink" href="#helper-function" title="Permalink to this headline">¶</a></h2>
+<p>The helper function should provide you enough informations on how to run this program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ saru-run -h
+</pre></div>
+</div>
+<p>But if you trouble understanding it, you can continue reading this section.</p>
+</section>
+<section id="selecting-the-dataset">
+<h2>Selecting the dataset:<a class="headerlink" href="#selecting-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>You can chose the dataset that will be computed using the <code class="docutils literal notranslate"><span class="pre">--dataset</span></code> option.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ saru-run --dataset red-wine
+</pre></div>
+</div>
+<p>The available choices are: <em>wine</em>, <em>red-wine</em>, <em>white-wine</em> and <em>housing</em>. <em>Wine</em> is
+the combination of <em>red-wine</em> and <em>white-wine</em>.</p>
+<p>By default: <em>white-wine</em></p>
+</section>
+<section id="preprocessing-methods">
+<h2>Preprocessing methods:<a class="headerlink" href="#preprocessing-methods" title="Permalink to this headline">¶</a></h2>
+<p>You can also chose which preprocessing method will be aplied to the set of data using
+the <code class="docutils literal notranslate"><span class="pre">--prep</span></code> option.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ saru-run --prep minmax
+</pre></div>
+</div>
+<p>The available choices are: <em>minmax</em>, <em>znorm</em>, <em>poly-minmax</em> and <em>poly-znorm</em>.</p>
+<p>By default: <em>minmax</em></p>
+</section>
+<section id="protocols">
+<h2>Protocols:<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h2>
+<p>Finally, you can chose which protocol’s results you want to display. This simple project
+use 3 protocols and all 3 are displayed by default.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ saru-run -p proto1
+</pre></div>
+</div>
+<p>you can also give a list of protocols:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ saru-run -p proto1 proto2
+</pre></div>
+</div>
+<p>Go to the <a class="reference external" href="https://rubendecampos.github.io/mini-project/results">result</a> page.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/saru-logo.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">User Guide</a><ul>
+<li><a class="reference internal" href="#helper-function">Helper function:</a></li>
+<li><a class="reference internal" href="#selecting-the-dataset">Selecting the dataset:</a></li>
+<li><a class="reference internal" href="#preprocessing-methods">Preprocessing methods:</a></li>
+<li><a class="reference internal" href="#protocols">Protocols:</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="installation.html"
+                          title="previous chapter">Installation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api.html"
+                          title="next chapter">Python API</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/user_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="Python API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">mini-project  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User Guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Ruben De Campos / Samuel Michel.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
